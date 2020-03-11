@@ -394,5 +394,74 @@ A cookie is a piece of data that is stored on your computer to be accessed by yo
 
 **Performance, Minify, Optimize**, Websocket
 
+websocket -> 
+API: send action like notify have booking, notifyMoveBooking
+with have 2 things like actionName, id
+```
+
+Websocket.server.clients.forEach((client) => client.restaurantId === restaurantId truyen vao)
+```
+UI
+angular2-websocket,
+open connection
+ping websocket every 40seconds
+onMessage -> filter action and do thing like reload booking by calling services
+
+view child -> @ViewChild('guestDetail) public guestDetail: GuestDetailComponent
+-> click -> guestDetail.showCreate();
+forRoot() -> the root routing module
+forChild() -> feature routing module
+
+A singleton service is a service for which only one instance exists in an app.
+@injectable({providedIn: 'root'})
+Generally, you'll only need providedIn for providing services and forRoot()/forChild() for routing
 
 
+Lazy loading so far — Lazy loaded routes
+Lazy loading is a great feature. In Angular, we get it almost for free by declaring a lazy route.
+
+
+Modules are a first-class concept and the main building block of every Angular app. They declare several components, directives, pipes, and services.
+
+A ComponentFactoryResolver is a simple registry that maps Components to generated ComponentFactory classes which can be used to create instances of components.
+
+
+
+https://github.com/kreuzerk/city-quiz
+
+
+ng build --prod
+npm run analize
+
+
+Dependency Injection (DI) is a way to create objects that depend on the other objects. A Dependency Injection system supplies the dependent objects (called the dependencies) when it creates an instance of an object
+
+
+Service: Provider va ProvidedIn -> just provide the service for specifies module
+
+guard -> canActivate -> bo vao router
+
+notification -> toast
+
+new Service or component, => moi test case thi goi function
+
+improve SPA by splitting your app in multiple chunk
+
+ webpack-bundle-analyzer
+
+ We use the dynamic import statement to lazy load the component’s code. Then use a ComponentFactoryResolver to obtain a ComponentFactory for the component which we then pass to a ViewContainerRef which modifies the DOM accordingly, by adding the component.
+     <ng-container #anchor></ng-container>
+  @ViewChild('anchor', { read: ViewContainerRef }) anchor: ViewContainerRef;
+
+   async loadComponent() {
+    const { LazyComponent } = await import('./lazy/lazy.component');
+    const factory = this.factoryResolver.resolveComponentFactory(LazyComponent);
+    this.anchor.createComponent(factory);
+  }
+
+
+Progress Web Application  it is still a website, but it will look and feel like an app and provide functionality not available to normal websites.
+
+To check our application for PWA features, we should first build it for production because most PWA features are not used during development.
+
+A Service Worker is a feature that’s available in modern browsers which can be used as a network proxy that lets your application intercept network requests to cache assets and data. This could be used for implementing PWA features such as offline support, push notifications, etc
